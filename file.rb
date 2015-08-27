@@ -4,41 +4,30 @@
       '6' => ['gc', '33', '28-6', '23-6', 'us', 'ap']
     }
 
-us_index = trains['N'] & trains['L'] & trains['6']
+puts "What train are you riding #{trains.keys}?"
+train1 = gets.chomp.capitalize
 
-train1 = ''
-
-puts 'What train are you riding?'
-train1 = gets.chomp
-puts train1
-
-start = ''
-puts 'Where are you starting?'
-start = gets.chomp
-puts start
+puts "Where are you starting #{trains[train1]}?"
+start = gets.chomp.downcase
 
 start_index = trains[train1].index(start)
 
-train2 = ''
-puts 'What train are you arriving with?'
-train2 = gets.chomp
-puts train2
+puts "What train are you arriving with #{trains.keys}?"
+train2 = gets.chomp.capitalize.downcase
 
-stop = ''
-puts 'Where are you finishing your journey?'
+puts "Where are you finishing your journey #{trains[train2]}?"
 stop = gets.chomp
-puts stop
 
 stop_index = trains[train2].index(stop) 
 
-# same_train_answer = start_index - stop_index 
+same_train_answer = start_index - stop_index 
 
 multi_train_start_index = trains[train1].index('us') - start_index
 multi_train_stop_index =  trains[train2].index('us') - stop_index
 multi_train_answer = multi_train_start_index.abs + multi_train_stop_index.abs
 
 if train1 == train2
-  puts "You have #{start_index - stop_index.abs} stops to reach your destination"
+  puts "You have #{same_train_answer.abs} stops to reach your destination"
 else
   puts "You have #{multi_train_answer} stops to reach your destination"
 
