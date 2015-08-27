@@ -31,14 +31,14 @@ puts stop
 
 stop_index = trains[train2].index(stop) 
 
-same_train_answer = start_index - stop_index
+# same_train_answer = start_index - stop_index 
 
 multi_train_start_index = trains[train1].index('us') - start_index
 multi_train_stop_index =  trains[train2].index('us') - stop_index
 multi_train_answer = multi_train_start_index.abs + multi_train_stop_index.abs
 
 if train1 == train2
-  puts "You have #{same_train_answer.abs} stops to reach your destination"
+  puts "You have #{start_index - stop_index.abs} stops to reach your destination"
 else
   puts "You have #{multi_train_answer} stops to reach your destination"
 
