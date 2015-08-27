@@ -42,6 +42,8 @@ if train1 == train2
 else
   puts "You have #{multi_train_answer} stops to reach your destination"
 
+end
+
 
 
 
